@@ -1,11 +1,18 @@
+import AnswerModel from './answer'
+
 export default class QuizModel {
   #id: number
   #title: string
-  #answers: any[]
+  #answers: AnswerModel[]
   #correct: boolean
   // #answered: boolean
 
-  constructor(id: number, title: string, answers: any[], correct: boolean) {
+  constructor(
+    id: number,
+    title: string,
+    answers: AnswerModel[],
+    correct: boolean
+  ) {
     this.#id = id
     this.#title = title
     this.#answers = answers
@@ -28,7 +35,9 @@ export default class QuizModel {
   }
 
   get answered() {
-    //FIXME: Implementar o método
+    for (const answer of this.#answers) {
+      if (answer.showed) return true
+    }
     return false
   }
 }
