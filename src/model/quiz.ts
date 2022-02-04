@@ -5,7 +5,6 @@ export default class QuizModel {
   #title: string
   #answers: AnswerModel[]
   #correct: boolean
-  // #answered: boolean
 
   constructor(
     id: number,
