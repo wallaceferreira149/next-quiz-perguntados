@@ -9,6 +9,13 @@ export default class AnswerModel {
     this.#showed = showed
   }
 
+  static correctAnswer(text: string): AnswerModel {
+    return new AnswerModel(text, true, false)
+  }
+  static wrongAnswer(text: string): AnswerModel {
+    return new AnswerModel(text, false, false)
+  }
+
   get value() {
     return this.#value
   }
