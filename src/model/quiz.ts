@@ -39,4 +39,13 @@ export default class QuizModel {
     }
     return false
   }
+
+  toObject() {
+    return {
+      id: this.#id,
+      title: this.#title,
+      answers: this.#answers.map((answer) => answer.toObject()),
+      correct: this.#correct,
+    }
+  }
 }

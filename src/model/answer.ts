@@ -27,4 +27,12 @@ export default class AnswerModel {
   get showed() {
     return this.#showed
   }
+
+  toObject() {
+    return {
+      value: this.#value,
+      correct: this.#correct,
+      showed: this.#showed,
+    }
+  }
 }
