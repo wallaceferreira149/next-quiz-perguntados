@@ -10,7 +10,7 @@ export default class QuizModel {
     id: number,
     title: string,
     answers: AnswerModel[],
-    correct: boolean
+    correct = false
   ) {
     this.#id = id
     this.#title = title
