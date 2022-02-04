@@ -46,11 +46,23 @@ export default class QuizModel {
     return new QuizModel(this.#id, this.#title, answersShuffle, this.#correct)
   }
 
+  answerWith(indice: number): QuizModel {
+    const correctAnswer = this.#answers[indice]?.correct
+    const answers = this.#answers.map((answer, i) => {
+      const selectAnswer = indice === i
+      const shouldShow = selectAnswer || answer.correct
+      return shouldShow ? answer.showAnswer() : answer
+    })
+
+    return new QuizModel(this.id, this.title, answers, correctAnswer)
+  }
+
   toObject() {
     return {
       id: this.#id,
       title: this.#title,
       answers: this.#answers.map((answer) => answer.toObject()),
+      answered: this.answered,
       correct: this.#correct,
     }
   }

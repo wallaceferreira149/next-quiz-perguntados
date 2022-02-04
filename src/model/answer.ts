@@ -3,7 +3,7 @@ export default class AnswerModel {
   #correct: boolean
   #showed: boolean
 
-  constructor(value: string, correct: boolean, showed: false) {
+  constructor(value: string, correct: boolean, showed = false) {
     this.#value = value
     this.#correct = correct
     this.#showed = showed
@@ -26,6 +26,10 @@ export default class AnswerModel {
 
   get showed() {
     return this.#showed
+  }
+
+  showAnswer() {
+    return new AnswerModel(this.#value, this.#correct, true)
   }
 
   toObject() {
