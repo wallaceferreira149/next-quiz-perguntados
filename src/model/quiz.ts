@@ -1,3 +1,4 @@
+import { shuffle } from '../utils/array'
 import AnswerModel from './answer'
 
 export default class QuizModel {
@@ -38,6 +39,11 @@ export default class QuizModel {
       if (answer.showed) return true
     }
     return false
+  }
+
+  shuffleAnswers(): QuizModel {
+    const answersShuffle = shuffle(this.#answers)
+    return new QuizModel(this.#id, this.#title, answersShuffle, this.#correct)
   }
 
   toObject() {
