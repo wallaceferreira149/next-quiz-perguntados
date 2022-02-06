@@ -7,12 +7,16 @@ type AnswerProps = {
   indice: number
   letter: string
   backColor: string
+  onResponse: (indice: number) => void
 }
 
 export function Answer(props: AnswerProps) {
   const answer = props.value
   return (
-    <div className={styles.answer}>
+    <div
+      className={styles.answer}
+      onClick={() => props.onResponse(props.indice)}
+    >
       <div className={styles.content}>
         <div className={styles.front}>
           <div
