@@ -46,5 +46,29 @@
         font-weight: 700;
       }
     }
+
+    .back {
+      div {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 12px;
+      }
+      .correct {
+        background: #2baa6d;
+      }
+      .wrong {
+        background: #e44a4c;
+      }
+
+      .correct .text,
+      .wrong .text {
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+    }
   }
 }

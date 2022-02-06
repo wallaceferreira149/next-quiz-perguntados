@@ -18,16 +18,31 @@ export function Answer(props: AnswerProps) {
       onClick={() => props.onResponse(props.indice)}
     >
       <div className={styles.content}>
-        <div className={styles.front}>
-          <div
-            className={styles.letter}
-            style={{ background: props.backColor }}
-          >
-            {props.letter}
+        {!answer.showed ? (
+          <div className={styles.front}>
+            <div
+              className={styles.letter}
+              style={{ background: props.backColor }}
+            >
+              {props.letter}
+            </div>
+            <div className={styles.value}>{answer.value}</div>
           </div>
-          <div className={styles.value}>{answer.value}</div>
-        </div>
-        <div className={styles.back}></div>
+        ) : (
+          <div className={styles.back}>
+            {answer.correct ? (
+              <div className={styles.correct}>
+                <div>A resposta certa é...</div>
+                <div className={styles.text}>{answer.value}</div>
+              </div>
+            ) : (
+              <div className={styles.wrong}>
+                <div>A resposta informada está errada...</div>
+                <div className={styles.text}>{answer.value}</div>
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )
