@@ -9,7 +9,7 @@ type ButtonProps = {
 
 export default function Button(props: ButtonProps) {
   return props.href ? (
-    <Link href={props.href}>
+    <Link href={props.href} passHref>
       <button className={styles.button} onClick={props.onClick}>
         {props.text}
       </button>
