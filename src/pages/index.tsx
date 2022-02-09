@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Quiz } from '../components/Quiz'
 import QuizModel from '../model/quiz'
 
-const BASE_URL = 'http://localhost:3000/api'
+const BASE_URL = 'https://next-quiz-perguntados.vercel.app/api'
 
 const Home: NextPage = () => {
   const router = useRouter()
