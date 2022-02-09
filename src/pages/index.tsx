@@ -4,7 +4,10 @@ import { useEffect, useState } from 'react'
 import { Quiz } from '../components/Quiz'
 import QuizModel from '../model/quiz'
 
+import styles from '../styles/Home.module.scss'
+
 const BASE_URL = 'https://next-quiz-perguntados.vercel.app/api'
+// const BASE_URL = 'http://localhost:3000/api'
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -81,7 +84,7 @@ const Home: NextPage = () => {
       goNextStep={goNextStep}
     />
   ) : (
-    <h1>Loading...</h1>
+    <h1 className={styles.loading}>Loading...</h1>
   )
 }
 
