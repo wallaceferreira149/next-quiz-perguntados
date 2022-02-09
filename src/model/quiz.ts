@@ -57,6 +57,13 @@ export default class QuizModel {
     return new QuizModel(this.id, this.title, answers, correctAnswer)
   }
 
+  static fromObject(model: QuizModel): QuizModel {
+    const answers = model.answers.map((answer) =>
+      AnswerModel.fromObject(answer)
+    )
+    return new QuizModel(model.id, model.title, answers, model.correct)
+  }
+
   toObject() {
     return {
       id: this.#id,
