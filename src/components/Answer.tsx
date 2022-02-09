@@ -12,37 +12,36 @@ type AnswerProps = {
 
 export function Answer(props: AnswerProps) {
   const answer = props.value
+  const answerReveald = answer.showed ? styles.answerReveald : ''
   return (
     <div
       className={styles.answer}
       onClick={() => props.onResponse(props.indice)}
     >
-      <div className={styles.content}>
-        {!answer.showed ? (
-          <div className={styles.front}>
-            <div
-              className={styles.letter}
-              style={{ background: props.backColor }}
-            >
-              {props.letter}
+      <div className={`${styles.content} ${answerReveald}`}>
+        <div className={styles.front}>
+          <div
+            className={styles.letter}
+            style={{ background: props.backColor }}
+          >
+            {props.letter}
+          </div>
+          <div className={styles.value}>{answer.value}</div>
+        </div>
+
+        <div className={styles.back}>
+          {answer.correct ? (
+            <div className={styles.correct}>
+              <div>A resposta certa é...</div>
+              <div className={styles.text}>{answer.value}</div>
             </div>
-            <div className={styles.value}>{answer.value}</div>
-          </div>
-        ) : (
-          <div className={styles.back}>
-            {answer.correct ? (
-              <div className={styles.correct}>
-                <div>A resposta certa é...</div>
-                <div className={styles.text}>{answer.value}</div>
-              </div>
-            ) : (
-              <div className={styles.wrong}>
-                <div>A resposta informada está errada...</div>
-                <div className={styles.text}>{answer.value}</div>
-              </div>
-            )}
-          </div>
-        )}
+          ) : (
+            <div className={styles.wrong}>
+              <div>A resposta informada está errada...</div>
+              <div className={styles.text}>{answer.value}</div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
