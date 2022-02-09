@@ -16,7 +16,6 @@ const Home: NextPage = () => {
     try {
       const resp = await fetch(`${BASE_URL}/quiz`)
       const ids = await resp.json()
-      console.log(ids)
       setQuestionsId(ids)
     } catch (err) {
       console.error(err)
